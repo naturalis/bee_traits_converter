@@ -4,7 +4,7 @@ if (!file_exists(__DIR__ . '/config.php')) {
 }
 require_once 'config.php';
 
-/*
+
 $import = new Import();
 $import->setDb([
 	'host' => HOST, 
@@ -15,7 +15,7 @@ $import->setDb([
 $import->createBeesDb(FMP_SQL);
 $import->setCsv(FMP_CSV);
 echo $import->importCsv() . " records imported";
-*/
+
 
 $convert = new Convert();
 $convert->setDbs([
@@ -40,6 +40,7 @@ $convert->createGeneralTraits();
 $convert->createBiometricsTraits();
 $convert->createForagingRangeTraits();
 $convert->sortTraits();
+
 
 class Convert
 {
