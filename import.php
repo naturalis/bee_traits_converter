@@ -28,9 +28,6 @@ $convert->setDbs([
 $convert->createLinnaeusDb(LIN_SQL);
 $convert->createUsers();
 $convert->createTaxa();
-
-die('test');
-
 $convert->createNames();
 $convert->createReferences();
 $convert->createDescriptions();
