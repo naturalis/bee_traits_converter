@@ -8,7 +8,7 @@
 # Host: localhost (MySQL 5.6.38)
 # Database: bees
 # Generation Time: 2018-12-12 14:13:35 +0000
-# ************************************************************
+# ************************************************************ 
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;

@@ -4331,7 +4331,8 @@ LOCK TABLES `projects_roles_users` WRITE;
 
 INSERT INTO `projects_roles_users` (`id`, `project_id`, `role_id`, `user_id`, `active`, `last_project_select`, `project_selects`, `created`)
 VALUES
-	(1,1,1,1,1,'2018-12-05 15:02:31',2,'2018-12-05 13:49:33');
+    (1,1,1,1,1,'2018-12-05 15:02:31',2,'2018-12-05 13:49:33'),
+    (2,1,2,2,1,'2018-12-05 15:02:31',2,'2018-12-05 13:49:33');
 
 /*!40000 ALTER TABLE `projects_roles_users` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -5200,15 +5201,6 @@ CREATE TABLE `users` (
   KEY `password` (`password`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-
-INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `email_address`, `active`, `last_login`, `logins`, `last_password_change`, `created_by`, `last_change`, `created`)
-VALUES
-	(1,'sysadmin','$2y$10$P6J3Z.gHXHfXQGYJ95zi8.LRrRI.kKfTMaRKiJs2DHT2FV52UIHGW','sys','admin','sys@admin.com',1,'2018-12-05 15:02:18',1,NULL,-1,'2018-12-05 14:02:18','2018-12-05 13:49:33');
-
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table users_taxa

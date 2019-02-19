@@ -28,6 +28,9 @@ $convert->setDbs([
 $convert->createLinnaeusDb(LIN_SQL);
 $convert->createUsers();
 $convert->createTaxa();
+
+die('test');
+
 $convert->createNames();
 $convert->createReferences();
 $convert->createDescriptions();
@@ -857,14 +860,14 @@ class Convert
 	
 	public function createUsers ()
 	{
-		$this->linPdo->query('DELETE FROM users WHERE id > 1');
-		$this->linPdo->query('
-			INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `email_address`, 
+	    $q = '
+			INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `email_address`,
 				`active`, `last_login`, `logins`, `last_password_change`, `created_by`, `last_change`, `created`)
 			VALUES
-				(2, "stuart", "$2y$10$Y2Nq3iX.cK0v8TXWxSIxo.ZthG0uT07CGNcZSo9t678tlpeZ245/K", 
-				"Stuart", "Roberts", "spmr@msn.com", 1, NULL, 0, NULL, 1, NOW(), NOW())');
-		// pwd = __tmp_pass__
+				(?, ?, ?, ?, ?, ?, 1, NULL, 0, NULL, 1, NOW(), NOW())';
+	    $stmt = $this->linPdo->prepare($q);
+	    $stmt->execute([1, "sysadmin", password_hash(LIN_PWD, PASSWORD_DEFAULT), "sys","admin","sys@admin.com"]);
+	    $stmt->execute([2, "stuart", password_hash(LIN_PWD, PASSWORD_DEFAULT), "Stuart", "Roberts", "spmr@msn.com"]);
 	}
 	
 	public function createNames ()
