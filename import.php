@@ -207,7 +207,7 @@ class Convert
                 ],
                 'Feeding category' => [
                     'traits' => self::$feedingCategory,
-                    'row' => 'Feeding category',
+                    'row' => 'Feeding Category',
                 ],
                 'Structural/physical resources' => [
                     'traits' => self::$structuralPhysicalResources,
@@ -299,6 +299,10 @@ class Convert
                 'Voltinism' => [
                     'traits' => $this->getDistinctSourceValues('Voltinism'),
                     'row' => 'Voltinism',
+                ],
+                'Tongue length' => [
+                    'traits' => $this->getDistinctSourceValues('Tongue length guild'),
+                    'row' => 'Tongue length guild',
                 ],
             ]
             );
@@ -536,7 +540,7 @@ class Convert
         $traitGroupId = $this->linPdo->lastInsertId();
         
         foreach (self::$cropResources as $category => $resources) {
-            // Add trait
+             // Add trait
             $traitTextId = $this->getTextId($category);
             $labelTextId = $this->getTextId("Crop resources — $category");
             $q = '
@@ -864,8 +868,8 @@ class Convert
 			VALUES
 				(?, ?, ?, ?, ?, ?, 1, NULL, 0, NULL, 1, NOW(), NOW())';
         $stmt = $this->linPdo->prepare($q);
-        $stmt->execute([1, "sysadmin", password_hash(LIN_PWD, PASSWORD_DEFAULT), "sys","admin","sys@admin.com"]);
-        $stmt->execute([2, "stuart", password_hash(LIN_PWD, PASSWORD_DEFAULT), "Stuart", "Roberts", "spmr@msn.com"]);
+        $stmt->execute([1, "sysadmin", password_hash(SYSADMIN_PWD, PASSWORD_DEFAULT), "sys","admin","sys@admin.com"]);
+        $stmt->execute([2, "stuart", password_hash(STUART_PWD, PASSWORD_DEFAULT), "Stuart", "Roberts", "spmr@msn.com"]);
     }
     
     public function createNames ()
