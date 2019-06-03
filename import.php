@@ -687,6 +687,7 @@ class Convert
             'Distribution; world' => 'distribution_world',
             'Abundance; world' => 'abundance_world',
             'Conservation status; world' => 'conservation_world',
+            'Colony size' => 'colony_size'
         ]);
         
         $this->linPdo->query('DELETE FROM content_taxa WHERE page_id IN (1, 2, 3, 4, 5, 7, 8)');
@@ -700,7 +701,8 @@ class Convert
             $description = '' .
                 $this->printSection('Description published', $row['description_published']) .
                 $this->printSection('Location of type', $row['description_type_loc']) .
-                $this->printSection('Description', $row['description']);
+                $this->printSection('Description', $row['description']) .
+                $this->printSection('Colony size', $row['colony_size']);
                 if ($description != '') {
                     $stmt->execute([$id, 1, $description]);
                 }
