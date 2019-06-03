@@ -1727,6 +1727,7 @@ class Convert
     ];
     
     public static $feedingCategory = [
+        'Herbivore',
         'Predator/parasite',
         'Detrivore',
         'Omnivore',
